@@ -10,7 +10,7 @@ jobs:
 
       - name: grant permission to script file
         run: |
-          chmod a+x asii-script.sh
+          chmod +x ascii-script.sh
           ./ascii-script.sh
 
       - name: List repo files
