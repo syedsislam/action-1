@@ -28,7 +28,7 @@ jobs:
     - name: download artifacts
       uses: actions/download-artifact@v4
       with:
-        name: dragon-text-file
+        artifact-ids: 3986742310
     
     - name: check dragon.txt file
       run: grep -i "dragon" dragon.txt
@@ -40,9 +40,9 @@ jobs:
     - name: download artifacts
       uses: actions/download-artifact@v4
       with:
-        name: dragon-text-file
+        artifact-ids: 3986742310
         
-    - name: display dragon
+    - name: disp dragon
       run: cat dragon.txt
     - name: deploy
       run: echo Deploying .... .. .
