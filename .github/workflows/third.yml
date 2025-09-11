@@ -14,18 +14,34 @@ jobs:
         ./ascii-script.sh
     - name: sleep for 30 seconds
       run: sleep 10
+    - name: upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: dragon-text-file
+        path: dragon.txt
   test_job_2:
     needs: build_job_1
     runs-on: ubuntu-latest
     steps:
     - name: sleep 10 seconds
       run: sleep 10
+    - name: download artifacts
+      uses: actions/download-artifact@v5
+      with:
+        name: dragon-text-file
+        path: dragon.txt
     - name: check dragon.txt file
       run: grep -i "dragon" dragon.txt
+
   deploy_job_3:
     needs: [test_job_2, build_job_1]
     runs-on: ubuntu-latest
     steps:
+    - name: download artifacts
+      uses: actions/download-artifact@v5
+      with:
+        name: dragon-text-file
+        path: dragon.txt
     - name: display dragon
       run: cat dragon.txt
     - name: deploy
