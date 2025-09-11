@@ -8,7 +8,7 @@ jobs:
       uses: actions/checkout@v4
     - name: List repo files
       run: ls -ltra
-    - name: Executing Shell Script
+    - name: Executing Shell Script-Inside workflows directory
       run: |
         chmod +x ascii-script.sh
         ./ascii-script.sh
