@@ -1,0 +1,17 @@
+name: my second action job
+on: push
+
+jobs:
+    ascii_job:
+      runs-on: ubuntu-latest
+      steps:
+      - name: checkout Repo
+        uses: actions/checkout@v4
+      - name: grant permission to script file
+        run: chmod a+x asii-script.sh
+      - name: List repo files
+        run: ls -ltra
+      - name: Execute shell script
+        run: ./ascii-script.sh
+      - name: List repo files again
+        run: ls -ltra
