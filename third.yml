@@ -1,6 +1,5 @@
 - name: build test and deploy
 on: push
-
 jobs:
   build_job_1:
     runs-on: ubuntu-latest
