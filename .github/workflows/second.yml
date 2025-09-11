@@ -8,10 +8,11 @@ jobs:
       - name: checkout Repo
         uses: actions/checkout@v4
 
-      - name: List repo files
+      - name: grant permission to script file
         run: |
-          chmod +x ascii-script.sh
+          chmod a+x asii-script.sh
           ./ascii-script.sh
-          
-      - name: List repo files again
+
+      - name: List repo files
         run: ls -ltra
+
