@@ -7,12 +7,14 @@ jobs:
       steps:
       - name: checkout Repo
         uses: actions/checkout@v4
+      - name: list all files
+        run: ls -ltra
 
       - name: grant permission to script file
         run: |
           chmod +x ascii-script.sh
           ./ascii-script.sh
 
-      - name: List repo files
+      - name: List repo files again
         run: ls -ltra
 
