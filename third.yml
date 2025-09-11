@@ -1,0 +1,31 @@
+- name: build test and deploy
+on: push
+
+jobs:
+  build_job_1:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout Repo
+      uses: actions/checkout@v4
+    - name: List repo files
+      run: ls -ltra
+    - name: Executing Shell Script
+      run: |
+        chmod +x ascii-script.sh
+        ./ascii-script.sh
+    - name: sleep for 30 seconds
+      run: sleep 10
+  test_job_2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: sleep 10 seconds
+      run: sleep 10
+    - name: check dragon.txt file
+      run: grep -i "dragon" dragon.txt
+  deploy_job_3:
+    runs-on: ubuntu-latest
+    steps:
+    - name: display dragon
+      run: cat dragon.txt
+    - name: deploy
+      run: echo Deploying .... .. .
