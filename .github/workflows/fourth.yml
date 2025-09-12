@@ -1,10 +1,6 @@
 name: docker build and deploy
 on: push
-env:
-    CONTAINER_REGISTRY: docker.io
-    DOCKER_USERNAME: siddharth1
-    DOCKER_PASSWORD: s3cUrePaSsw0rd
-    IMAGE_NAME: github-actions-nginx
+
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -12,7 +8,7 @@ jobs:
     - name: Docker build
       run: echo docker build -t ${{ env.CONTAINER_REGISTRY }}/${{ env.DOCKER_USERNAME}}/${{ env.IMAGE_NAME}}:latest
     - name: Docker login
-      run: echo docker login --username=${{ env.DOCKER_USERNAME }} --password=${{ env.DOCKER_PASSWORD}}
+      run: echo docker login --username=${{ env.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD}}
     - name: Docker Publish
       run: echo docker push ${{env.CONTAINER_REGISTRY }}/${{ env.DOCKER_USERNAME }}/${{env.IMAGE_NAME }}:latest
   deploy:
