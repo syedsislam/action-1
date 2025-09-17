@@ -4,9 +4,9 @@ on:
 #  schedule:
 #  - cron: "*/59 * * * *"
   push:
-        branches-ignore:
-        - feature/*
-        - test/**
+#        branches-ignore:
+#        - feature/*
+#        - test/**
     branches:
      - main
      - '!feature/*'
@@ -18,7 +18,7 @@ on:
      - README.md
     branches:
      - main
-job:
+jobs:
   hello:
     runs-on: ubuntu-latest
     steps:
